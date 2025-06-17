@@ -977,6 +977,7 @@ function compartirContenido() {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  display: none;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 ">📲 Instalar App</button>
 
@@ -985,20 +986,17 @@ let deferredPrompt;
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  document.getElementById("installAppBtn").style.display = "block";
+  const btn = document.getElementById("installAppBtn");
+  if (btn) btn.style.display = "block";
 });
 
 document.getElementById("installAppBtn").addEventListener("click", async () => {
+  const btn = document.getElementById("installAppBtn");
+  btn.style.display = "none"; // Se oculta al instante
   if (deferredPrompt) {
     deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") {
-      console.log("App instalada");
-    } else {
-      console.log("App no instalada");
-    }
+    await deferredPrompt.userChoice;
     deferredPrompt = null;
-    document.getElementById("installAppBtn").style.display = "none";
   }
 });
 </script>
