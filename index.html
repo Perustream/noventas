@@ -965,51 +965,41 @@ function compartirContenido() {
 
 
 
-<div id="install-popup" style="
+<button id="installAppBtn" style="
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  color: black;
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  top: 20px;
+  left: 20px;
   z-index: 10000;
-  text-align: center;
-  display: none;
-">
-  <p style="margin-bottom: 15px; font-size: 16px;">¿Quieres instalar <b>Radio 90'S</b> como app?</p>
-  <button id="install-btn-popup" style="
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-  ">📲 Instalar App</button>
-</div>
+  background: #007BFF;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+">📲 Instalar App</button>
 
 <script>
 let deferredPrompt;
-const popup = document.getElementById("install-popup");
-const installBtnPopup = document.getElementById("install-btn-popup");
-
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  popup.style.display = "block";
+  document.getElementById("installAppBtn").style.display = "block";
+});
 
-  installBtnPopup.addEventListener("click", async () => {
-    popup.style.display = "none";
+document.getElementById("installAppBtn").addEventListener("click", async () => {
+  if (deferredPrompt) {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === "accepted") {
       console.log("App instalada");
+    } else {
+      console.log("App no instalada");
     }
     deferredPrompt = null;
-  });
+    document.getElementById("installAppBtn").style.display = "none";
+  }
 });
 </script>
 
