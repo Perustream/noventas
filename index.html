@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+
+
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="manifest.json" rel="manifest"/>
+<meta content="#ffc107" name="theme-color"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Radio 90'S</title>
+<style>
+    .social a {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .social a:hover {
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 0 12px #ffc107cc;
+    }
+
+    .social a {
+      transition: all 0.4s ease;
+      animation: flotar 3s infinite ease-in-out;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      background: #f5f5f5;
+      color: black;
+      position: relative;
+      overflow-x: hidden;
+     background: url(https://i.postimg.cc/T179x82z/images-2025-06-17-T111911-767.jpg) no-repeat center center fixed; background-size: cover;}
+    header {
+      background: #ffc107;
+      color: black;
+      padding: 15px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      position: relative;
+    }
+    .share {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 24px;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    }
+    .logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid white;
+      animation: spin 15s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .status {
+      background: #ffc107;
+      color: black;
+      padding: 8px 20px;
+      margin: 20px 0;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .live-badge {
+      background: #c62828;
+      color: white;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      position: absolute;
+      top: 210px;
+      right: 20px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .play-btn {
+      background: #ffc107;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      font-size: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      border: none;
+      box-shadow: 0 0 15px #00000099;
+      margin: 20px auto;
+      cursor: pointer;
+    }
+    .social {
+      position: absolute;
+      right: 15px;
+      top: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .social a {
+      
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: black;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+    .social a:hover {
+      transform: scale(1.1);
+    }
+    .footer {
+      margin-top: 40px;
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+    }
+  
+  /* Puedes cambiar el fondo aquí: reemplaza 'fondo.jpg' por tu imagen */
+  body {
+    background: url('fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+   background: url(https://i.postimg.cc/T179x82z/images-2025-06-17-T111911-767.jpg) no-repeat center center fixed; background-size: cover;}
+
+</style>
+
+<style>
+#share-btn {
+  all: unset;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 999;
+}
+#share-btn a, #share-btn img {
+  all: unset;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+</style>
+
+
+
+
+
+
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+body {
+  background: linear-gradient(135deg, #fff1f2, #ffe0e0);
+  background-attachment: fixed;
+ background: url(https://i.postimg.cc/T179x82z/images-2025-06-17-T111911-767.jpg) no-repeat center center fixed; background-size: cover;}
+</style>
+
+<style>
+#logo-img {
+  filter: none !important;
+  z-index: 1;
+  position: relative;
+}
+</style>
+
+<style>
+#header-text {
+  transition: opacity 0.8s ease;
+  display: inline-block;
+}
+</style>
+
+<link rel="icon" href="https://i.postimg.cc/t45g4XGn/IMG-20250617-WA0062.jpg" type="image/png">
+</head>
+<body>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+ background: url(https://i.postimg.cc/T179x82z/images-2025-06-17-T111911-767.jpg) no-repeat center center fixed; background-size: cover;}
+#blur-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  z-index: -1;
+}
+</style>
+<div id="blur-bg" style="filter: blur(15px);"></div>
+
+
+
+
+
+
+<div style="position:fixed;top:5px;right:5px;z-index:9999;">
+  <button onclick="compartirContenido()" title="Compartir"
+    style="width:50px;height:50px;border:none;background:url('https://i.postimg.cc/66d0HY8c/share.png') center center no-repeat;
+           background-size: cover; border-radius: 50%; cursor: pointer;">
+  </button>
+</div>
+
+
+
+
+<div style="position:fixed;top:5px;right:5px;z-index:9999;">
+  <button onclick="compartirContenido()" title="Compartir"
+    style="width:50px;height:50px;border:none;background:url('https://i.postimg.cc/66d0HY8c/share.png') center center no-repeat;
+           background-size: cover; border-radius: 50%; cursor: pointer;">
+  </button>
+</div>
+
+
+
+<div style="position:fixed;top:0px;right:15px;z-index:9999;">
+  
+</div>
+
+
+<div style="position:fixed;top:15px;right:15px;z-index:999;">
+  
+</div>
+
+
+
+<header>
+  <span id="header-text">Radio 90'S</span>
+</header>
+
+<div class="main" style="margin-bottom: 40px;">
+<!-- Puedes cambiar esta imagen: logo.png.[png|jpg] -->
+<img alt="Radio 90'S Logo" class="logo" id="logo-img" src="https://i.postimg.cc/t45g4XGn/IMG-20250617-WA0062.jpg" style="margin-top: 60px; width: 200px; height: 200px;"/>
+<div class="live-badge">LIVE</div>
+<div class="status" id="status">EN PAUSA</div>
+<audio id="audio" src="https://stream.zeno.fm/hlu0yaszg7utv" preload="none"></audio>
+<h2 style="font-size: 20px; margin-bottom: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white;">Radio 90'S</h2>
+<p style="font-size: 14px; margin-bottom: 10px; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;"><span id="title-meta">Cargando título...</span></p>
+
+<div class="social" style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+<a href="https://facebook.com/radiopasion" target="_blank"><img alt="Facebook" src="https://i.postimg.cc/8kfCdqnt/facebook.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://youtube.com/@radiopasion" target="_blank"><img alt="YouTube" src="https://i.postimg.cc/8z59MVZC/youtube.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://wa.me/?text=Escucha%20Radio%20Pasi%C3%B3n%20en%20https%3A%2F%2Fradiopasion.com" target="_blank"><img alt="WhatsApp" src="https://i.postimg.cc/1zFWrRwy/whatsapp.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://tiktok.com/@radiopasion" target="_blank"><img alt="TikTok" src="https://i.postimg.cc/c1FcYt2Q/tiktok.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://t.me/radiopasion" target="_blank"><img alt="Telegram" src="https://i.postimg.cc/wvLjzNNn/telegram-icon-free-png.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+</div>
+
+
+<!-- Para mostrar tus noticias de Blogger, reemplaza el iframe o usa Google Feed para tu blog RSS -->
+
+
+
+
+
+
+
+
+<!-- NOTICIAS DE TODO EL PERÚ (INCLUYENDO CAJAMARCA) -->
+<script>
+if ('serviceWorker' in navigator) {
+ navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+
+<!-- NOTICIAS ANIMADAS UNA POR UNA -->
+
+</div>
+
+
+
+
+<div style="margin-top: 10px;"><button class="play-btn" id="playButton" onclick="togglePlay()">▶</button></div>
+</div>
+<div class="social" style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+<a href="https://facebook.com/radiopasion" target="_blank"><img alt="Facebook" src="https://i.postimg.cc/8kfCdqnt/facebook.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://youtube.com/@radiopasion" target="_blank"><img alt="YouTube" src="https://i.postimg.cc/8z59MVZC/youtube.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://wa.me/?text=Escucha%20Radio%20Pasi%C3%B3n%20en%20https%3A%2F%2Fradiopasion.com" target="_blank"><img alt="WhatsApp" src="https://i.postimg.cc/1zFWrRwy/whatsapp.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://tiktok.com/@radiopasion" target="_blank"><img alt="TikTok" src="https://i.postimg.cc/c1FcYt2Q/tiktok.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://t.me/radiopasion" target="_blank"><img alt="Telegram" src="https://i.postimg.cc/wvLjzNNn/telegram-icon-free-png.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+</div>
+
+
+<script>
+  const audio = document.getElementById("audio");
+  const playBtn = document.getElementById("playButton");
+  const status = document.getElementById("status");
+
+  function togglePlay() {
+    if (audio.paused) {
+      audio.play().then(() => {
+        playBtn.textContent = '⏸';
+        status.textContent = 'EN VIVO';
+      }).catch(() => {
+        alert("Toca para permitir reproducir el audio");
+      });
+    } else {
+      audio.pause();
+      playBtn.textContent = '▶';
+      status.textContent = 'EN PAUSA';
+    }
+  }
+
+    // Ocultar si ya fue instalada
+    
+
+    
+    </script>
+<script>
+  function compartir() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Radio 90'S',
+        text: 'Escucha Radio 90'S en vivo',
+        url: window.location.href
+      }).catch(console.error);
+    } else {
+      alert("Tu navegador no soporta la función de compartir.");
+    }
+  }
+
+    // Ocultar si ya fue instalada
+    
+
+    
+    </script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(function() {
+      console.log('Service Worker registrado');
+    });
+  }
+
+    // Ocultar si ya fue instalada
+    
+
+    
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="noticias-actualizadas" style="max-width: 90%; margin: 10px auto; font-family: sans-serif; background: #ffc107; padding: 8px 10px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.05); font-size: 13px;">
+  <h2 style="text-align:center; color:white;">📰 Noticias recientes</h2>
+  <div id="noticia-actual" style="text-align:center; padding: 10px;">Cargando noticias...</div>
+
+
+
+<style>
+#chat-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: black;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+}
+#chat-menu {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 10px;
+  display: none;
+  z-index: 999;
+}
+#chat-menu a {
+  display: block;
+  padding: 8px 12px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+#chat-menu a:hover {
+  background: #f0f0f0;
+}
+</style>
+<div id="chat-menu" style="display:none;">
+  <a href="#">📨 Dejar pedido</a>
+</div>
+
+<script>
+function toggleChat() {
+  const menu = document.getElementById('chat-menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+
+
+<style>
+#chat-container {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.5s ease;
+  z-index: 999;
+}
+#chat-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+#chat-options {
+  
+  color: #007bff;
+  margin-top: 8px;
+  border-radius: 10px;
+  padding: 8px;
+  display: none;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+#chat-options a {
+  text-decoration: none;
+  display: block;
+  padding: 6px 10px;
+  font-weight: bold;
+  color: white;
+}
+#chat-options a:hover {
+  background: #f0f0f0;
+}
+</style>
+
+<div id="chat-container" style="margin-top: 10px;" style="margin-top: 5px; margin-bottom: 5px;">
+  <button id="chat-button" onclick="toggleChatMenu()">💬 CHAT EN VIVO</button>
+<div style="text-align:center; font-size:13px; color:white; margin-top:2px;">Desarrollado por <strong>Perú Streaming</strong></div>
+  <div id="chat-options">
+    <a href="#" onclick="mostrarFormulario()">Pedir canción</a>
+  </div>
+</div>
+
+<script>
+let visible = false;
+function toggleChatMenu() {
+  const options = document.getElementById("chat-options");
+  visible = !visible;
+  options.style.display = visible ? "block" : "none";
+}
+window.onload = () => {
+  const container = document.getElementById("chat-container");
+  setTimeout(() => {
+    container.style.bottom = "20px";
+  }, 500);
+};
+</script>
+
+
+<style>
+#form-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+#form-box {
+  
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+#form-box input, #form-box textarea {
+  width: 90%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+#form-box button {
+  background: #007bff;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+</style>
+<div id="form-modal" onclick="cerrarFormulario(event)">
+  <div id="form-box" onclick="event.stopPropagation()">
+    <h3>Pedir una canción</h3>
+    <input type="text" placeholder="Tu nombre" id="nombre"><br>
+    <input type="text" placeholder="Artista o canción" id="cancion"><br>
+    <textarea placeholder="Mensaje o dedicatoria" rows="3" id="mensaje"></textarea><br>
+    <button style="background:#0d6efd; color:white; padding:10px 20px; border:none; border-radius:5px;">Enviar</button>
+  </div>
+</div>
+
+
+<script>
+function mostrarFormulario() {
+  document.getElementById("form-modal").style.display = "flex";
+}
+function cerrarFormulario(e) {
+  if (e.target.id === "form-modal") {
+    document.getElementById("form-modal").style.display = "none";
+  }
+}
+
+function enviarFormulario() {
+  const nombre = document.getElementById("nombre").value.trim();
+  const cancion = document.getElementById("cancion").value.trim();
+  const mensaje = document.getElementById("mensaje").value.trim();
+  if (!nombre || !cancion) {
+    alert("Por favor completa los campos obligatorios.");
+    return;
+  }
+  const texto = `Hola, soy ${nombre}. Quiero pedir la canción: ${cancion}. Mensaje: ${mensaje}`;
+  const url = `i966735476?text=${encodeURIComponent(texto)}`;
+  window.open(url, "_blank");
+  document.getElementById("form-modal").style.display = "none";
+}
+
+</script>
+
+
+
+
+<script>
+const frases = ["Radio 90'S", "Los mejores clásicos 🎶"];
+let indiceFrase = 0;
+const headerText = document.getElementById("header-text");
+
+setInterval(() => {
+  headerText.style.opacity = 0;
+  setTimeout(() => {
+    indiceFrase = (indiceFrase + 1) % frases.length;
+    headerText.textContent = frases[indiceFrase];
+    headerText.style.opacity = 1;
+  }, 800);
+}, 4000);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let noticias = [], indice = 0;
+
+const imagenesAlternas = ['https://i.postimg.cc/xC3VzphZ/images-2025-06-16-T224102-461.jpg', 'https://i.postimg.cc/26VXzcmv/images-2025-06-16-T224117-252.jpg'];
+
+function obtenerImagenAleatoria() {
+  return imagenesAlternas[Math.floor(Math.random() * imagenesAlternas.length)];
+}
+
+const feeds = [
+  "https://elpopular.pe/rss/",
+  "https://publimetro.pe/feed/",
+  "https://expreso.com.pe/feed/",
+  "https://lanoticia.pe/feed/",
+  "https://lalupa.pe/feed/",
+  "https://realidad.pe/feed/",
+  "https://enfoqueregional.pe/feed/",
+  "https://aprimerahora.pe/feed/",
+  "https://diariovoces.com.pe/feed/",
+  "https://diariocorreo.pe/rss/",
+  "https://elcomercio.pe/rss/ultimas/",
+  "https://peru21.pe/rss/",
+  "https://ojo.pe/rss/",
+  "https://trome.pe/rss/",
+  "https://larepublica.pe/rss",
+  "https://rpp.pe/feed",
+  "https://radiokaribena.pe/feed/",
+  "https://diarioelclarin.com.pe/feed/",
+  "https://panoramacajamarquino.com/feed/",
+  "https://encumbia.com/feed/",
+  "https://elcumbe.com.pe/feed/",
+  "https://exitosanoticias.pe/feed/"
+];
+
+const defaultImg = 'https://i.postimg.cc/59q6sY4L/images-2025-06-16-T221453-129.jpg';
+
+async function cargarTodasNoticias() {
+  try {
+    let todas = [];
+    for (const url of feeds) {
+      const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(url));
+      const data = await res.json();
+      const medio = new URL(url).hostname.replace("www.", "");
+      if (data.items) {
+        todas = todas.concat(data.items.map(item => ({
+          title: item.title,
+          link: item.link,
+          description: item.description,
+          source: medio,
+          thumbnail: item.thumbnail || (item.enclosure && item.enclosure.link) || extraerImagenDeDescripcion(item.description)
+        })));
+      }
+    }
+    noticias = todas.slice(0, 25);
+    mostrarNoticia();
+    setInterval(mostrarNoticia, 7000);
+  } catch {
+    document.getElementById("noticia-actual").innerText = "No se pudieron cargar noticias.";
+  }
+}
+
+function extraerImagenDeDescripcion(desc) {
+  const match = desc.match(/<img[^>]+src=["']([^"']+)["']/i);
+  return match ? match[1] : null;
+}
+
+function mostrarNoticia() {
+  if (noticias.length === 0) return;
+  const contenedor = document.getElementById("noticia-actual");
+  const noticia = noticias[indice];
+  contenedor.innerHTML = "";
+
+  const wrapper = document.createElement("div");
+  wrapper.style = "max-width: 320px; margin: auto;  border-radius: 10px; padding: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);";
+
+  const img = document.createElement("img");
+  
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % imagenesAlternas.length;
+  if (!noticia.thumbnail) img.src = imagenesAlternas[i];
+}, 5000);
+img.src = imagenesAlternas[i];
+
+  img.alt = "imagen";
+  img.style = "height:90px !important;width:auto;border-radius:10px;background: #ffe600;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;object-fit:cover;";
+
+  if (noticia.thumbnail) {
+    const testImg = new Image();
+    testImg.onload = () => img.src = noticia.thumbnail;
+    testImg.src = noticia.thumbnail;
+  }
+
+  const link = document.createElement("a");
+  link.href = noticia.link;
+  link.target = "_blank";
+  link.innerText = noticia.title;
+  link.style = "display:block;font-weight:bold;font-size:13px;color:#fff;margin-bottom:5px;text-decoration:none;";
+
+  const fuente = document.createElement("div");
+  fuente.innerText = "Fuente: " + noticia.source;
+  fuente.style = "font-size:11px;color:#ffc107;";
+
+  wrapper.appendChild(img);
+  wrapper.appendChild(link);
+  wrapper.appendChild(fuente);
+  contenedor.appendChild(wrapper);
+
+  indice = (indice + 1) % noticias.length;
+}
+
+cargarTodasNoticias();
+</script>
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+  const menu = document.createElement('div');
+  menu.style.position = 'absolute';
+  menu.style.top = e.clientY + 'px';
+  menu.style.left = e.clientX + 'px';
+  menu.style.width = '1px';
+  menu.style.height = '1px';
+  menu.style.background = 'transparent';
+  menu.style.zIndex = 10000;
+  document.body.appendChild(menu);
+  setTimeout(() => menu.remove(), 500);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && ['u','s','c'].includes(e.key.toLowerCase()) || 
+      e.key === 'F12' || 
+      (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase()))) {
+    e.preventDefault();
+  }
+});
+document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+</script>
+
+
+
+
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(() => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choice) => {
+        if (choice.outcome === 'accepted') {
+          console.log('Instalación aceptada');
+        } else {
+          console.log('Instalación cancelada');
+        }
+        deferredPrompt = null;
+      });
+    }
+  }, 500);
+});
+</script>
+
+
+<button id="installBtn" onclick="installApp()" style="display:none;position:fixed;bottom:20px;right:20px;padding:10px 16px;font-size:16px;background:#ffc107;color:white;border:none;border-radius:8px;z-index:1000;">📲 Instalar app</button>
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById("installBtn");
+  if (btn) btn.style.display = "block";
+});
+
+function installApp() {
+  const btn = document.getElementById("installBtn");
+  btn.style.display = "none";
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+    });
+  }
+}
+</script>
+
+
+
+
+
+<script>
+const source = new EventSource("https://api.zeno.fm/mounts/metadata/subscribe/hlu0yaszg7utv");
+
+source.onmessage = function(event) {
+  try {
+    const data = JSON.parse(event.data);
+    const texto = data?.streamTitle || "🎵 Sin título";
+    const meta = document.getElementById("title-meta");
+    if (meta) meta.textContent = texto;
+
+    let limpio = texto.replace(/^\d+\s*/, '').replace(/[^\wÀ-ÿ\s\-']/g, '').trim();
+    let partes = limpio.split(" - ");
+    let busqueda = limpio;
+    if (partes.length === 2) {
+      busqueda = partes[1] + " " + partes[0];
+    }
+
+    function setCover(img) {
+      const cover = document.getElementById("logo-img");
+      const bg = document.getElementById("blur-bg");
+      if (cover) cover.src = img || "https://i.postimg.cc/t45g4XGn/IMG-20250617-WA0062.jpg";
+      if (bg && img) bg.style.backgroundImage = "url('" + img + "')";
+    }
+
+    function buscarEnITunes() {
+      fetch('https://itunes.apple.com/search?term=' + encodeURIComponent(busqueda) + '&limit=1')
+        .then(res => res.json())
+        .then(json => {
+          const img = json.results[0]?.artworkUrl100?.replace("100x100bb.jpg", "600x600bb.jpg");
+          setCover(img);
+
+      if ('mediaSession' in navigator) {
+        const cover = document.getElementById("logo-img");
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: texto,
+          artist: "",
+          album: "Radio 90'S",
+          artwork: [
+            { src: cover.src, sizes: "512x512", type: "image/png" }
+          ]
+        });
+      }
+
+
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: texto,
+          artist: "",
+          album: "Radio 90'S",
+          artwork: [
+            { src: cover.src, sizes: "512x512", type: "image/png" }
+          ]
+        });
+      }
+
+        }).catch(() => {});
+    }
+
+    fetch('https://api.deezer.com/search?q=' + encodeURIComponent(busqueda))
+      .then(res => res.json())
+      .then(data => {
+        const img = data.data[0]?.album?.cover_big || data.data[0]?.album?.cover_medium;
+        if (img) {
+          setCover(img);
+
+      if ('mediaSession' in navigator) {
+        const cover = document.getElementById("logo-img");
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: texto,
+          artist: "",
+          album: "Radio 90'S",
+          artwork: [
+            { src: cover.src, sizes: "512x512", type: "image/png" }
+          ]
+        });
+      }
+
+
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: texto,
+          artist: "",
+          album: "Radio 90'S",
+          artwork: [
+            { src: cover.src, sizes: "512x512", type: "image/png" }
+          ]
+        });
+      }
+
+        } else {
+          buscarEnITunes();
+        }
+      }).catch(() => buscarEnITunes());
+
+  } catch (e) {
+    console.error("Metadata error:", e);
+  }
+};
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const shareBtn = document.getElementById("share-button");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", () => {
+      if (navigator.share) {
+        navigator.share({
+          title: "Escucha Radio 90'S",
+          text: "Sintoniza los mejores clásicos en Radio 90'S 🎶",
+          url: window.location.href
+        }).catch((error) => console.error("Error al compartir:", error));
+      } else {
+        alert("Tu navegador no soporta la función de compartir.");
+      }
+    });
+  }
+});
+</script>
+
+
+<script>
+function compartirContenido() {
+  const url = "https://noventas.vercel.app";
+  const text = "🎶 Escucha Radio 90'S";
+
+  if (navigator.share) {
+    navigator.share({
+      title: "Radio 90'S",
+      text: text,
+      url: url
+    }).catch(console.error);
+  } else {
+    alert("Tu navegador no soporta la función de compartir.");
+  }
+}
+</script>
+
+
+</body>
