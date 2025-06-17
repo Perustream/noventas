@@ -206,6 +206,33 @@ body {
 </style>
 
 <link rel="icon" href="https://i.postimg.cc/t45g4XGn/IMG-20250617-WA0062.jpg" type="image/png">
+
+<script>
+// Bloquear teclas comunes para inspección
+document.addEventListener("keydown", function (e) {
+  if (
+    e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S') ||
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))
+  ) {
+    e.preventDefault();
+    return false;
+  }
+});
+
+// Detección de apertura de consola
+(function() {
+  const element = new Image();
+  Object.defineProperty(element, 'id', {
+    get: function() {
+      document.body.innerHTML = '';
+      alert("⚠️ Inspección de código detectada. Esta acción está bloqueada.");
+    }
+  });
+  console.log(element);
+})();
+</script>
+
 </head>
 <body>
 
@@ -978,25 +1005,27 @@ function compartirContenido() {
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  display: none;
 ">📲 Instalar App</button>
 
 <script>
 let deferredPrompt;
-const installBtn = document.getElementById("installAppBtn");
-
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  installBtn.style.display = "block";
+  document.getElementById("installAppBtn").style.display = "block";
 });
 
-installBtn.addEventListener("click", async () => {
+document.getElementById("installAppBtn").addEventListener("click", async () => {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    installBtn.style.display = "none";
+    if (outcome === "accepted") {
+      console.log("App instalada");
+    } else {
+      console.log("App no instalada");
+    }
     deferredPrompt = null;
+    document.getElementById("installAppBtn").style.display = "none";
   }
 });
 </script>
