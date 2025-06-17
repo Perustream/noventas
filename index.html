@@ -965,7 +965,7 @@ function compartirContenido() {
 
 
 
-<button id="installBtn" onclick="installApp()" style="display:none;position:fixed;bottom:20px;right:20px;padding:10px 16px;font-size:16px;background:#ffc107;color:white;border:none;border-radius:8px;z-index:1000;">📲 Instalar app</button>
+<button id="installBtn" onclick="installApp()" style="display:block;position:fixed;bottom:20px;right:20px;padding:10px 16px;font-size:16px;background:#ffc107;color:white;border:none;border-radius:8px;z-index:1000;">📲 Instalar app</button>
 
 <script>
 let deferredPrompt;
@@ -976,7 +976,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   const btn = document.getElementById("installBtn");
   if (btn) btn.style.display = "block";
 
-  // Lanzar instalación apenas se entra
+  // Intentar instalar automáticamente
   setTimeout(() => {
     if (deferredPrompt) {
       deferredPrompt.prompt();
@@ -985,7 +985,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
         if (btn) btn.style.display = "none";
       });
     }
-  }, 500);
+  }, 800);
 });
 
 function installApp() {
