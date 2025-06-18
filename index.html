@@ -965,39 +965,46 @@ function compartirContenido() {
 
 
 
-<button id="installAppBtn" style="
+<div id="install-popup" style="
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 10000;
-  background: #007BFF;
-  color: white;
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  text-align: center;
   display: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-">📲 Instalar App</button>
+">
+  <p style="margin-bottom: 15px; font-size: 16px;">¿Deseas instalar <b>Radio 90'S</b> como app?</p>
+  <button id="install-popup-btn" style="
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+  ">📲 Instalar App</button>
+</div>
 
 <script>
 let deferredPrompt;
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  const btn = document.getElementById("installAppBtn");
-  if (btn) btn.style.display = "block";
-});
+  const popup = document.getElementById("install-popup");
+  if (popup) popup.style.display = "block";
 
-document.getElementById("installAppBtn").addEventListener("click", async () => {
-  const btn = document.getElementById("installAppBtn");
-  btn.style.display = "none"; // Se oculta al instante
-  if (deferredPrompt) {
+  document.getElementById("install-popup-btn").addEventListener("click", async () => {
+    popup.style.display = "none";
     deferredPrompt.prompt();
     await deferredPrompt.userChoice;
     deferredPrompt = null;
-  }
+  });
 });
 </script>
 
